@@ -10,6 +10,7 @@ const raiz = path.join(__dirname, "..");
 const conteudo = JSON.parse(fs.readFileSync(path.join(raiz, "public/conteudo.json"), "utf8"));
 const { casos } = JSON.parse(fs.readFileSync(path.join(__dirname, "casos.json"), "utf8"));
 
+const { validarConteudo } = require(path.join(raiz, "public/regras.js"));
 const itens = conteudo.itens;
 const acha = id => itens.find(i => i.id === id);
 
@@ -18,77 +19,11 @@ const erro = m => { console.log("  FALHA  " + m); falhas++; };
 const passa = m => { ok++; if (process.env.VERBOSE) console.log("  ok     " + m); };
 
 /* ---------- 1. integridade estrutural ---------- */
+/* Mesmas regras que o editor usa (public/regras.js). Uma fonte so:
+   se divergissem, o editor aprovaria conteudo que este teste reprova. */
 console.log("\n[1] Estrutura do conteudo");
-
-const ids = new Set();
-for (const e of itens) {
-  const ctx = e.id || "(sem id)";
-  ["id", "nome", "area", "tipo", "uso", "fonte"].forEach(k => {
-    if (!e[k]) erro(`${ctx}: campo obrigatorio ausente -> ${k}`);
-  });
-  if (ids.has(e.id)) erro(`id duplicado: ${e.id}`);
-  ids.add(e.id);
-
-  if (e.faixas) {
-    const lim = e.faixas.map(f => f.ate);
-    lim.forEach((v, k) => {
-      if (k > 0 && v <= lim[k - 1]) erro(`${ctx}: faixas fora de ordem crescente`);
-    });
-    e.faixas.forEach(f => {
-      if (!f.nome || !f.nota) erro(`${ctx}: faixa sem nome ou conduta`);
-      if (!["low", "mid", "high"].includes(f.cor)) erro(`${ctx}: cor de faixa invalida -> ${f.cor}`);
-    });
-  }
-
-  if (e.tipo === "criterios") {
-    const soma = e.itens.filter(i => i.pts > 0).reduce((s, i) => s + i.pts, 0);
-    const excl = e.itens.filter(i => i.exclui);
-    const maxReal = excl.length ? somaMaxComExclusao(e) : soma;
-    if (e.max !== maxReal) erro(`${ctx}: max declarado ${e.max}, maximo alcancavel ${maxReal}`);
-    // reciprocidade da exclusao
-    excl.forEach(i => i.exclui.forEach(alvo => {
-      const outro = e.itens.find(x => x.id === alvo);
-      if (!outro) return erro(`${ctx}: ${i.id} exclui id inexistente "${alvo}"`);
-      if (!outro.exclui || !outro.exclui.includes(i.id))
-        erro(`${ctx}: exclusao nao reciproca entre ${i.id} e ${alvo}`);
-    }));
-  }
-
-  if (e.tipo === "infusao") {
-    e.drogas.forEach(d => {
-      ["nome", "unidade", "conc", "diluicao", "min", "max", "alerta"].forEach(k => {
-        if (d[k] === undefined) erro(`${ctx}/${d.id}: falta ${k}`);
-      });
-      if (d.min >= d.max) erro(`${ctx}/${d.id}: faixa de dose invalida (${d.min}-${d.max})`);
-      if (d.conc <= 0) erro(`${ctx}/${d.id}: concentracao invalida`);
-    });
-  }
-
-  if (e.tipo === "checklist") {
-    const vistos = new Set();
-    e.secoes.flatMap(s => s.itens).forEach(i => {
-      if (vistos.has(i.id)) erro(`${ctx}: id de item repetido -> ${i.id}`);
-      vistos.add(i.id);
-    });
-    if (!e.secoes.flatMap(s => s.itens).some(i => i.critico))
-      erro(`${ctx}: checklist sem nenhum item critico`);
-  }
-  passa(ctx);
-}
-
-function somaMaxComExclusao(e) {
-  // forca bruta: testa todas as combinacoes validas
-  const its = e.itens.filter(i => i.pts > 0);
-  let melhor = 0;
-  const n = its.length;
-  for (let m = 0; m < (1 << n); m++) {
-    const sel = its.filter((_, k) => m & (1 << k));
-    const conflito = sel.some(i => i.exclui && i.exclui.some(x => sel.find(y => y.id === x)));
-    if (conflito) continue;
-    melhor = Math.max(melhor, sel.reduce((s, i) => s + i.pts, 0));
-  }
-  return melhor;
-}
+validarConteudo(itens).forEach(x => erro(`${x.id}: ${x.msg}`));
+itens.forEach(i => passa(i.id));
 
 /* ---------- 2. casos clinicos ---------- */
 console.log("\n[2] Casos clinicos");

@@ -237,3 +237,53 @@ O que vai para o modelo são trechos serializados do `conteudo.json` (doses,
 faixas, condutas, fontes) — nunca dado de paciente, nunca conhecimento
 externo. Se o modelo responder sem citar fonte, o servidor descarta antes de
 chegar à tela.
+
+---
+
+## Editor de conteúdo (`/editor.html`)
+
+Feito para a revisora médica editar o material **sem tocar em JSON**.
+
+```bash
+npx http-server public -p 8080
+# abre http://localhost:8080/editor.html
+```
+
+Fluxo de trabalho:
+
+1. Ela abre o editor, clica num item e revisa textos, doses, faixas e condutas
+2. As alterações ficam guardadas no navegador dela — pode fechar e voltar depois
+3. **Validar** aponta os problemas em português, item por item
+4. **Baixar conteudo.json** só funciona se estiver tudo válido
+5. Ela te manda o arquivo; você substitui `public/conteudo.json`, roda
+   `npm test` e publica
+
+O que o editor faz sozinho, para ela não precisar saber:
+
+- Recalcula o `max` do escore quando a pontuação de um critério muda
+- Marca item de checklist como crítico com um clique
+- Valida ao vivo e bloqueia o download enquanto houver erro
+- **Descartar alterações** volta ao conteúdo publicado
+
+As regras de validação vivem em `public/regras.js` e são as **mesmas** que a
+suíte de testes usa. Fontes separadas divergiriam, e o editor acabaria
+aprovando conteúdo que o teste reprova.
+
+---
+
+## Segurança do repositório
+
+A chave de API **nunca** entra no código nem no Git. Ela vive só nas variáveis
+de ambiente da Vercel, lida por `process.env.ANTHROPIC_API_KEY` dentro de
+`api/`.
+
+O `.gitignore` já bloqueia `.env`, `*.key` e `*.pem`. Antes de qualquer
+commit, confira:
+
+```bash
+git grep -n "sk-ant" && echo "PARE: tem chave no código"
+```
+
+Se uma chave já foi exposta em algum lugar — commit, print, mensagem —
+revogue no console da Anthropic e gere outra. Remover o arquivo depois não
+resolve: o histórico do Git guarda tudo.

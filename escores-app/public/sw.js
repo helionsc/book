@@ -4,7 +4,7 @@
    Conteudo clinico: cache primeiro, atualiza em segundo plano.
    Uma versao nova do conteudo so entra depois de baixada com sucesso. */
 
-const VERSAO = "v0.6.0";
+const VERSAO = "v0.7.0";
 const CASCO = `casco-${VERSAO}`;
 const DADOS = `dados-${VERSAO}`;
 
@@ -15,6 +15,7 @@ const ARQUIVOS = [
   "app.js",
   "resolver.js",
   "duvidas.js",
+  "regras.js",
   "manifest.webmanifest",
   "icone-192.png",
   "icone-512.png"
