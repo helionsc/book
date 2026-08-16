@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor de conteúdo</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+body{background:var(--fundo)}
+.ed{max-width:860px;margin:0 auto;padding:0 16px 90px}
+.ed header{padding:18px 0 14px}
+.ed h1{margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.ed .sub{font-size:13px;color:var(--fraco);margin-top:3px;line-height:1.5}
+.painel{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.painel button{padding:10px 14px;border-radius:9px;font-size:13.5px;cursor:pointer;
+  background:var(--papel);border:1px solid var(--linha);color:var(--tinta-2)}
+.painel button.forte{background:var(--marca);border-color:var(--marca);color:#fff;font-weight:620}
+.estado{margin-top:14px;border-radius:var(--r);padding:13px 15px;font-size:13.5px;line-height:1.55}
+.estado.ok{background:#eefaf2;border:1px solid #bfe6cd;color:#14532d}
+.estado.ruim{background:#fdeef0;border:1px solid #f3c3cb;color:#7f1d2b}
+.estado ul{margin:7px 0 0;padding-left:18px}
+.estado li{margin-bottom:3px}
+.lista-ed{display:grid;gap:8px;margin-top:16px}
+.it{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r);
+  padding:12px 14px;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:center;gap:12px}
+.it:hover{border-color:var(--marca)}
+.it b{font-size:15px;font-weight:620;display:block}
+.it small{font-size:12.5px;color:var(--fraco);display:block;margin-top:2px}
+.et{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--marca);
+  font-weight:670;background:var(--marca-clara);padding:3px 7px;border-radius:5px;flex:0 0 auto}
+.form{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r);
+  padding:16px;margin-top:16px}
+.campo{margin-bottom:14px}
+.campo label{display:block;font-size:12.5px;font-weight:640;color:var(--tinta-2);margin-bottom:5px}
+.campo .dica{font-size:11.5px;color:var(--fraco);font-weight:400;margin-top:-2px;margin-bottom:5px}
+.campo input,.campo textarea,.campo select{width:100%;background:var(--fundo);
+  border:1px solid var(--linha);border-radius:8px;padding:10px 12px;font-size:14.5px;
+  font-family:inherit;color:var(--tinta);outline:none}
+.campo textarea{min-height:70px;resize:vertical;line-height:1.5}
+.campo input:focus,.campo textarea:focus,.campo select:focus{border-color:var(--marca);background:var(--papel)}
+.sub-h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fraco);
+  font-weight:680;margin:20px 0 9px;padding-top:14px;border-top:1px solid var(--linha)}
+.linha-ed{display:grid;grid-template-columns:1fr 90px 40px;gap:8px;margin-bottom:8px;align-items:start}
+.linha-ed.tres{grid-template-columns:80px 1fr 1fr 40px}
+.linha-ed input{margin:0}
+.mini{background:none;border:1px solid var(--linha);border-radius:7px;height:38px;
+  cursor:pointer;color:var(--fraco);font-size:17px;line-height:1}
+.mini:hover{border-color:var(--alto);color:var(--alto)}
+.add{width:100%;background:none;border:1px dashed var(--linha);border-radius:8px;
+  padding:10px;cursor:pointer;color:var(--tinta-2);font-size:13.5px;margin-top:4px}
+.add:hover{border-color:var(--marca);color:var(--marca)}
+.rodape{position:fixed;left:0;right:0;bottom:0;background:var(--papel);
+  border-top:1px solid var(--linha);padding:12px 16px;display:flex;gap:8px;
+  justify-content:center;z-index:30}
+.rodape button{padding:12px 20px;border-radius:9px;font-size:14px;font-weight:620;cursor:pointer;
+  background:var(--papel);border:1px solid var(--linha);color:var(--tinta-2)}
+.rodape button.forte{background:var(--marca);border-color:var(--marca);color:#fff}
+.rodape button:disabled{opacity:.5;cursor:default}
+textarea.json{width:100%;min-height:280px;font-family:ui-monospace,monospace;font-size:11.5px;
+  padding:12px;border:1px solid var(--linha);border-radius:9px;background:var(--papel);
+  color:var(--tinta);margin-top:12px;resize:vertical}
+.oculto{display:none}
+</style>
+</head>
+<body>
+<div class="ed">
+  <header>
+    <h1>Editor de conteúdo</h1>
+    <p class="sub">Revisão do material clínico. Alterações ficam guardadas neste
+      navegador até você exportar o arquivo.</p>
+    <div class="painel">
+      <button id="b-lista" class="forte">Itens</button>
+      <button id="b-json">Ver JSON</button>
+      <button id="b-restaurar">Descartar alterações</button>
+    </div>
+    <div id="estado"></div>
+  </header>
+
+  <div id="tela"></div>
+</div>
+
+<div class="rodape">
+  <button id="b-validar">Validar</button>
+  <button id="b-baixar" class="forte">Baixar conteudo.json</button>
+</div>
+
+<script src="regras.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>
