@@ -1,0 +1,1030 @@
+{
+  "versao": "0.11.2",
+  "atualizado": "2026-08-15",
+  "itens": [
+    {
+      "id": "chads-vasc",
+      "nome": "CHA₂DS₂-VASc",
+      "sigla": "CHADSVASC",
+      "area": "Cardiologia",
+      "tipo": "criterios",
+      "uso": "Risco de AVC em fibrilação atrial não valvar",
+      "unidade": "pts",
+      "max": 9,
+      "itens": [
+        {
+          "id": "icc",
+          "txt": "Insuficiência cardíaca / disfunção de VE",
+          "pts": 1
+        },
+        {
+          "id": "has",
+          "txt": "Hipertensão arterial",
+          "pts": 1
+        },
+        {
+          "id": "id75",
+          "txt": "Idade ≥ 75 anos",
+          "pts": 2,
+          "exclui": [
+            "id65"
+          ]
+        },
+        {
+          "id": "dm",
+          "txt": "Diabetes mellitus",
+          "pts": 1
+        },
+        {
+          "id": "avc",
+          "txt": "AVC / AIT / tromboembolismo prévio",
+          "pts": 2
+        },
+        {
+          "id": "vasc",
+          "txt": "Doença vascular",
+          "sub": "IAM prévio, DAP ou placa aórtica",
+          "pts": 1
+        },
+        {
+          "id": "id65",
+          "txt": "Idade 65–74 anos",
+          "pts": 1,
+          "exclui": [
+            "id75"
+          ]
+        },
+        {
+          "id": "sexo",
+          "txt": "Sexo feminino",
+          "pts": 1
+        }
+      ],
+      "faixas": [
+        {
+          "ate": 0,
+          "nome": "Risco baixo",
+          "nota": "Anticoagulação geralmente não indicada.",
+          "cor": "low"
+        },
+        {
+          "ate": 1,
+          "nome": "Risco intermediário",
+          "nota": "Considerar anticoagulação — decisão individualizada.",
+          "cor": "mid"
+        },
+        {
+          "ate": 9,
+          "nome": "Risco alto",
+          "nota": "Anticoagulação oral indicada.",
+          "cor": "high"
+        }
+      ],
+      "fonte": "Lip GYH et al., Chest 2010. Diretriz de FA da SBC."
+    },
+    {
+      "id": "wells-tvp",
+      "nome": "Wells — TVP",
+      "sigla": "WELLS TVP",
+      "area": "Emergência",
+      "tipo": "criterios",
+      "uso": "Probabilidade pré-teste de trombose venosa profunda",
+      "unidade": "pts",
+      "max": 9,
+      "itens": [
+        {
+          "id": "ca",
+          "txt": "Câncer ativo",
+          "sub": "tratamento atual ou nos últimos 6 meses",
+          "pts": 1
+        },
+        {
+          "id": "par",
+          "txt": "Paralisia, paresia ou imobilização de MMII",
+          "pts": 1
+        },
+        {
+          "id": "acam",
+          "txt": "Acamado > 3 dias ou cirurgia maior < 12 semanas",
+          "pts": 1
+        },
+        {
+          "id": "dor",
+          "txt": "Dor à palpação do trajeto venoso profundo",
+          "pts": 1
+        },
+        {
+          "id": "edm",
+          "txt": "Edema de todo o membro",
+          "pts": 1
+        },
+        {
+          "id": "pant",
+          "txt": "Panturrilha > 3 cm em relação à contralateral",
+          "pts": 1
+        },
+        {
+          "id": "cac",
+          "txt": "Edema depressível no membro sintomático",
+          "pts": 1
+        },
+        {
+          "id": "col",
+          "txt": "Veias superficiais colaterais não varicosas",
+          "pts": 1
+        },
+        {
+          "id": "tvp",
+          "txt": "TVP prévia documentada",
+          "pts": 1
+        },
+        {
+          "id": "alt",
+          "txt": "Diagnóstico alternativo tão ou mais provável",
+          "pts": -2
+        }
+      ],
+      "faixas": [
+        {
+          "ate": 0,
+          "nome": "Probabilidade baixa",
+          "nota": "D-dímero negativo praticamente exclui TVP.",
+          "cor": "low"
+        },
+        {
+          "ate": 2,
+          "nome": "Probabilidade moderada",
+          "nota": "D-dímero e/ou ultrassom com doppler.",
+          "cor": "mid"
+        },
+        {
+          "ate": 9,
+          "nome": "Probabilidade alta",
+          "nota": "Ultrassom com doppler indicado.",
+          "cor": "high"
+        }
+      ],
+      "fonte": "Wells PS et al., Lancet 1997; NEJM 2003."
+    },
+    {
+      "id": "qsofa",
+      "nome": "qSOFA",
+      "sigla": "QSOFA",
+      "area": "Emergência",
+      "tipo": "criterios",
+      "uso": "Triagem de risco em suspeita de infecção",
+      "unidade": "pts",
+      "max": 3,
+      "itens": [
+        {
+          "id": "fr",
+          "txt": "Frequência respiratória ≥ 22 irpm",
+          "pts": 1
+        },
+        {
+          "id": "pas",
+          "txt": "Pressão arterial sistólica ≤ 100 mmHg",
+          "pts": 1
+        },
+        {
+          "id": "cons",
+          "txt": "Alteração do nível de consciência",
+          "sub": "Glasgow < 15",
+          "pts": 1
+        }
+      ],
+      "faixas": [
+        {
+          "ate": 1,
+          "nome": "Baixo risco",
+          "nota": "Não exclui sepse. Reavaliar conforme evolução.",
+          "cor": "low"
+        },
+        {
+          "ate": 3,
+          "nome": "Alto risco",
+          "nota": "Maior mortalidade intra-hospitalar. Investigar disfunção orgânica.",
+          "cor": "high"
+        }
+      ],
+      "fonte": "Singer M et al. (Sepsis-3), JAMA 2016."
+    },
+    {
+      "id": "curb65",
+      "nome": "CURB-65",
+      "sigla": "CURB65",
+      "area": "Pneumologia",
+      "tipo": "criterios",
+      "uso": "Gravidade de pneumonia adquirida na comunidade",
+      "unidade": "pts",
+      "max": 5,
+      "itens": [
+        {
+          "id": "c",
+          "txt": "Confusão mental",
+          "pts": 1
+        },
+        {
+          "id": "u",
+          "txt": "Ureia > 50 mg/dL",
+          "pts": 1
+        },
+        {
+          "id": "r",
+          "txt": "Frequência respiratória ≥ 30 irpm",
+          "pts": 1
+        },
+        {
+          "id": "b",
+          "txt": "PAS < 90 ou PAD ≤ 60 mmHg",
+          "pts": 1
+        },
+        {
+          "id": "i",
+          "txt": "Idade ≥ 65 anos",
+          "pts": 1
+        }
+      ],
+      "faixas": [
+        {
+          "ate": 1,
+          "nome": "Baixa gravidade",
+          "nota": "Tratamento ambulatorial em geral apropriado.",
+          "cor": "low"
+        },
+        {
+          "ate": 2,
+          "nome": "Gravidade moderada",
+          "nota": "Considerar internação ou observação.",
+          "cor": "mid"
+        },
+        {
+          "ate": 5,
+          "nome": "Alta gravidade",
+          "nota": "Internação; avaliar necessidade de UTI.",
+          "cor": "high"
+        }
+      ],
+      "fonte": "Lim WS et al., Thorax 2003."
+    },
+    {
+      "id": "glasgow",
+      "nome": "Escala de Coma de Glasgow",
+      "sigla": "ECG GLASGOW",
+      "area": "Neurologia",
+      "tipo": "escolha",
+      "uso": "Nível de consciência",
+      "unidade": "pts",
+      "min": 3,
+      "max": 15,
+      "invertido": true,
+      "itens": [
+        {
+          "id": "o",
+          "txt": "Abertura ocular",
+          "opcoes": [
+            [
+              "Espontânea",
+              4
+            ],
+            [
+              "Ao som",
+              3
+            ],
+            [
+              "À pressão",
+              2
+            ],
+            [
+              "Ausente",
+              1
+            ]
+          ]
+        },
+        {
+          "id": "v",
+          "txt": "Resposta verbal",
+          "opcoes": [
+            [
+              "Orientada",
+              5
+            ],
+            [
+              "Confusa",
+              4
+            ],
+            [
+              "Palavras",
+              3
+            ],
+            [
+              "Sons",
+              2
+            ],
+            [
+              "Ausente",
+              1
+            ]
+          ]
+        },
+        {
+          "id": "m",
+          "txt": "Resposta motora",
+          "opcoes": [
+            [
+              "A comandos",
+              6
+            ],
+            [
+              "Localiza",
+              5
+            ],
+            [
+              "Flexão normal",
+              4
+            ],
+            [
+              "Flexão anormal",
+              3
+            ],
+            [
+              "Extensão",
+              2
+            ],
+            [
+              "Ausente",
+              1
+            ]
+          ]
+        }
+      ],
+      "faixas": [
+        {
+          "ate": 8,
+          "nome": "Grave",
+          "nota": "Considerar via aérea definitiva.",
+          "cor": "high"
+        },
+        {
+          "ate": 12,
+          "nome": "Moderado",
+          "nota": "Monitorização neurológica seriada.",
+          "cor": "mid"
+        },
+        {
+          "ate": 15,
+          "nome": "Leve",
+          "nota": "Reavaliação conforme mecanismo de trauma.",
+          "cor": "low"
+        }
+      ],
+      "fonte": "Teasdale G, Jennett B, Lancet 1974. Versão GCS-40, 2014."
+    },
+    {
+      "id": "cockcroft",
+      "nome": "Cockcroft-Gault",
+      "sigla": "CLCR CLEARANCE",
+      "area": "Nefrologia",
+      "tipo": "formula",
+      "uso": "Estimativa de clearance de creatinina para ajuste de dose",
+      "unidade": "mL/min",
+      "campos": [
+        {
+          "id": "idade",
+          "txt": "Idade",
+          "un": "anos",
+          "min": 1,
+          "max": 120
+        },
+        {
+          "id": "peso",
+          "txt": "Peso",
+          "un": "kg",
+          "min": 1,
+          "max": 300
+        },
+        {
+          "id": "cr",
+          "txt": "Creatinina sérica",
+          "un": "mg/dL",
+          "min": 0.1,
+          "max": 20,
+          "passo": 0.01
+        },
+        {
+          "id": "sexo",
+          "txt": "Sexo",
+          "tipo": "opcao",
+          "opcoes": [
+            [
+              "Masculino",
+              1
+            ],
+            [
+              "Feminino",
+              0.85
+            ]
+          ]
+        }
+      ],
+      "faixas": [
+        {
+          "ate": 29,
+          "nome": "Redução grave",
+          "nota": "Ajuste de dose necessário na maioria dos fármacos.",
+          "cor": "high"
+        },
+        {
+          "ate": 59,
+          "nome": "Redução moderada",
+          "nota": "Verificar ajuste conforme o fármaco.",
+          "cor": "mid"
+        },
+        {
+          "ate": 999,
+          "nome": "Função preservada",
+          "nota": "Ajuste geralmente não necessário.",
+          "cor": "low"
+        }
+      ],
+      "fonte": "Cockcroft DW, Gault MH, Nephron 1976. Estimativa — não validada em obesidade ou função renal instável.",
+      "formula": "((140 - idade) * peso * sexo) / (72 * cr)"
+    },
+    {
+      "id": "o2-autonomia",
+      "nome": "Autonomia do cilindro de O₂",
+      "sigla": "OXIGENIO O2 CILINDRO",
+      "area": "Transporte",
+      "tipo": "oxigenio",
+      "uso": "Tempo restante de oxigênio versus duração do trajeto",
+      "cilindros": [
+        [
+          "Portátil 3,4 L",
+          3.4
+        ],
+        [
+          "5 L",
+          5
+        ],
+        [
+          "7 L",
+          7
+        ],
+        [
+          "10 L",
+          10
+        ],
+        [
+          "16 L",
+          16
+        ],
+        [
+          "Fixo 50 L",
+          50
+        ]
+      ],
+      "reservaPadrao": 25,
+      "fonte": "Volume gasoso = capacidade hidráulica (L) × pressão manométrica (kgf/cm²). Reserva de segurança configurável. Confirmar capacidade gravada no cilindro."
+    },
+    {
+      "id": "bic",
+      "nome": "Drogas em bomba de infusão",
+      "sigla": "BIC VASOATIVA DROGA INFUSAO",
+      "area": "Transporte",
+      "tipo": "infusao",
+      "uso": "Conversão dose ↔ mL/h para vasoativas e sedação",
+      "drogas": [
+        {
+          "id": "nora",
+          "nome": "Noradrenalina",
+          "unidade": "mcg/kg/min",
+          "conc": 64,
+          "diluicao": "16 mg (4 amp de 4 mg) em SG5% → 250 mL",
+          "min": 0.05,
+          "max": 2,
+          "alerta": "Preferir acesso central. Extravasamento causa necrose."
+        },
+        {
+          "id": "adre",
+          "nome": "Adrenalina",
+          "unidade": "mcg/kg/min",
+          "conc": 24,
+          "diluicao": "6 mg (6 amp de 1 mg) em SG5% → 250 mL",
+          "min": 0.05,
+          "max": 2,
+          "alerta": "Monitorar arritmia e isquemia."
+        },
+        {
+          "id": "dobu",
+          "nome": "Dobutamina",
+          "unidade": "mcg/kg/min",
+          "conc": 1000,
+          "diluicao": "250 mg (1 amp) em SG5% → 250 mL",
+          "min": 2.5,
+          "max": 20,
+          "alerta": "Pode causar hipotensão e taquiarritmia."
+        },
+        {
+          "id": "dopa",
+          "nome": "Dopamina",
+          "unidade": "mcg/kg/min",
+          "conc": 1000,
+          "diluicao": "250 mg (5 amp de 50 mg) em SG5% → 250 mL",
+          "min": 2,
+          "max": 20,
+          "alerta": "Mais arritmogênica que noradrenalina."
+        },
+        {
+          "id": "nipride",
+          "nome": "Nitroprussiato",
+          "unidade": "mcg/kg/min",
+          "conc": 200,
+          "diluicao": "50 mg (1 amp) em SG5% → 250 mL",
+          "min": 0.5,
+          "max": 10,
+          "alerta": "Fotossensível — proteger equipo e frasco. Risco de intoxicação por cianeto em uso prolongado."
+        },
+        {
+          "id": "fenta",
+          "nome": "Fentanil",
+          "unidade": "mcg/kg/h",
+          "conc": 50,
+          "diluicao": "Solução pura, 50 mcg/mL",
+          "min": 0.5,
+          "max": 5,
+          "alerta": "Depressão respiratória — via aérea assegurada."
+        },
+        {
+          "id": "mida",
+          "nome": "Midazolam",
+          "unidade": "mg/kg/h",
+          "conc": 1,
+          "diluicao": "75 mg em SF0,9% → 75 mL (1 mg/mL)",
+          "min": 0.02,
+          "max": 0.2,
+          "alerta": "Acúmulo em disfunção renal/hepática."
+        }
+      ],
+      "fonte": "Diluições são sugestões de padronização — confirmar a diluição do seu serviço antes de usar. Faixas de dose usuais em adultos."
+    },
+    {
+      "id": "check-transporte",
+      "nome": "Checklist pré-transporte",
+      "sigla": "CHECKLIST REMOCAO SAIDA",
+      "area": "Transporte",
+      "tipo": "checklist",
+      "uso": "Conferência antes do embarque — clínica, equipamento e documentação",
+      "secoes": [
+        {
+          "titulo": "Paciente estabilizado",
+          "itens": [
+            {
+              "id": "via",
+              "txt": "Via aérea assegurada e fixada",
+              "sub": "Confirmar posição do TOT e pressão do cuff antes de sair"
+            },
+            {
+              "id": "vent",
+              "txt": "Ventilador de transporte testado com os parâmetros do paciente"
+            },
+            {
+              "id": "acesso",
+              "txt": "Dois acessos venosos pérvios e fixados"
+            },
+            {
+              "id": "hemo",
+              "txt": "Estabilidade hemodinâmica nos últimos 15 min"
+            },
+            {
+              "id": "sonda",
+              "txt": "Sondas e drenos fixados e desprendidos da cama"
+            }
+          ]
+        },
+        {
+          "titulo": "Recursos da ambulância",
+          "itens": [
+            {
+              "id": "o2",
+              "txt": "Autonomia de O₂ calculada e superior ao trajeto",
+              "critico": true,
+              "sub": "Incluir margem para atraso e trânsito"
+            },
+            {
+              "id": "bomba",
+              "txt": "Bombas com bateria carregada e drogas em volume suficiente",
+              "critico": true
+            },
+            {
+              "id": "monitor",
+              "txt": "Monitor com bateria e cabos completos"
+            },
+            {
+              "id": "desfib",
+              "txt": "Desfibrilador testado"
+            },
+            {
+              "id": "maleta",
+              "txt": "Maleta de emergência e drogas de parada conferidas"
+            },
+            {
+              "id": "aspira",
+              "txt": "Aspirador funcionante"
+            }
+          ]
+        },
+        {
+          "titulo": "Documentação (CFM 1.672/2003)",
+          "itens": [
+            {
+              "id": "consent",
+              "txt": "Consentimento por escrito assinado",
+              "critico": true,
+              "sub": "Dispensável em risco de morte com responsável não localizável — nesse caso, autorização do médico solicitante documentada em prontuário"
+            },
+            {
+              "id": "relato",
+              "txt": "Relatório médico de transferência preenchido",
+              "critico": true
+            },
+            {
+              "id": "vaga",
+              "txt": "Vaga confirmada no destino, com nome do médico receptor",
+              "critico": true
+            },
+            {
+              "id": "exames",
+              "txt": "Exames e imagens acompanhando o paciente"
+            },
+            {
+              "id": "contato",
+              "txt": "Contato telefônico do destino registrado"
+            }
+          ]
+        },
+        {
+          "titulo": "Na chegada",
+          "itens": [
+            {
+              "id": "assina",
+              "txt": "Relatório assinado pelo médico receptor",
+              "critico": true,
+              "sub": "A responsabilidade do médico da ambulância vai até a entrega no destino"
+            },
+            {
+              "id": "passa",
+              "txt": "Passagem de caso verbal realizada"
+            }
+          ]
+        }
+      ],
+      "fonte": "Estruturado a partir da Resolução CFM nº 1.672/2003 (transporte inter-hospitalar) e da Resolução CFM nº 1.671/2003 (classificação de ambulâncias e equipamentos). Adaptar ao protocolo do seu serviço."
+    },
+    {
+      "id": "iot-rapida",
+      "nome": "Sequência rápida de intubação",
+      "sigla": "IOT SRI INTUBACAO SEQUENCIA RAPIDA",
+      "area": "Transporte",
+      "tipo": "dosepeso",
+      "uso": "Doses de indução, bloqueio e pós-IOT calculadas pelo peso",
+      "grupos": [
+        {
+          "titulo": "Pré-indução (opcional)",
+          "drogas": [
+            {
+              "nome": "Fentanil",
+              "dose": 3,
+              "un": "mcg/kg",
+              "apres": "50 mcg/mL",
+              "min": 1,
+              "max": 3,
+              "nota": "Atenua resposta adrenérgica. Evitar se instável."
+            }
+          ]
+        },
+        {
+          "titulo": "Indução",
+          "drogas": [
+            {
+              "nome": "Etomidato",
+              "dose": 0.3,
+              "un": "mg/kg",
+              "apres": "2 mg/mL",
+              "min": 0.2,
+              "max": 0.3,
+              "nota": "Melhor estabilidade hemodinâmica. Supressão adrenal transitória."
+            },
+            {
+              "nome": "Quetamina",
+              "dose": 1.5,
+              "un": "mg/kg",
+              "apres": "50 mg/mL",
+              "min": 1,
+              "max": 2,
+              "nota": "Preferida em choque e broncoespasmo."
+            },
+            {
+              "nome": "Propofol",
+              "dose": 1.5,
+              "un": "mg/kg",
+              "apres": "10 mg/mL",
+              "min": 1,
+              "max": 2,
+              "nota": "Hipotensão importante — evitar em instabilidade."
+            },
+            {
+              "nome": "Midazolam",
+              "dose": 0.2,
+              "un": "mg/kg",
+              "apres": "5 mg/mL",
+              "min": 0.1,
+              "max": 0.3,
+              "nota": "Início mais lento. Segunda linha para indução."
+            }
+          ]
+        },
+        {
+          "titulo": "Bloqueio neuromuscular",
+          "drogas": [
+            {
+              "nome": "Succinilcolina",
+              "dose": 1.5,
+              "un": "mg/kg",
+              "apres": "20 mg/mL",
+              "min": 1,
+              "max": 1.5,
+              "nota": "Contraindicada em hipercalemia, queimadura >24h, lesão medular, doença neuromuscular."
+            },
+            {
+              "nome": "Rocurônio",
+              "dose": 1.2,
+              "un": "mg/kg",
+              "apres": "10 mg/mL",
+              "min": 0.6,
+              "max": 1.2,
+              "nota": "Duração longa (45-70 min). Garantir sedação adequada."
+            }
+          ]
+        },
+        {
+          "titulo": "Pós-IOT",
+          "drogas": [
+            {
+              "nome": "Fentanil (manutenção)",
+              "dose": 2,
+              "un": "mcg/kg/h",
+              "apres": "50 mcg/mL",
+              "min": 0.5,
+              "max": 5,
+              "nota": "Iniciar imediatamente após a intubação."
+            },
+            {
+              "nome": "Midazolam (manutenção)",
+              "dose": 0.1,
+              "un": "mg/kg/h",
+              "apres": "1 mg/mL",
+              "min": 0.02,
+              "max": 0.2,
+              "nota": "Titular por escala de sedação."
+            }
+          ]
+        }
+      ],
+      "extras": [
+        {
+          "rot": "Tubo orotraqueal",
+          "calc": "sexo"
+        },
+        {
+          "rot": "Fixação do tubo",
+          "calc": "fixacao"
+        }
+      ],
+      "fonte": "Doses usuais em adultos. Apresentações são as mais comuns no Brasil — CONFERIR a apresentação disponível na ambulância antes de aspirar."
+    },
+    {
+      "id": "fluxo-dessat",
+      "nome": "Dessaturação durante o transporte",
+      "sigla": "DESSAT HIPOXEMIA DOPE",
+      "area": "Transporte",
+      "tipo": "fluxograma",
+      "uso": "Investigação sistemática de queda de saturação no paciente intubado",
+      "inicio": "n1",
+      "nos": {
+        "n1": {
+          "txt": "Queda de saturação no paciente intubado",
+          "sub": "Primeira medida: ventilar manualmente com FiO₂ 100% e desconectar do ventilador",
+          "op": [
+            {
+              "t": "Ventilei manualmente — melhorou",
+              "ir": "n2"
+            },
+            {
+              "t": "Ventilei manualmente — não melhorou",
+              "ir": "n3"
+            }
+          ]
+        },
+        "n2": {
+          "txt": "Problema é do circuito ou do ventilador",
+          "sub": "Melhora com ventilação manual aponta para o equipamento, não para o paciente",
+          "op": [
+            {
+              "t": "Verificar circuito, conexões e fonte de O₂",
+              "ir": "f1"
+            }
+          ]
+        },
+        "n3": {
+          "txt": "Investigar o paciente — mnemônico DOPE",
+          "sub": "Deslocamento, Obstrução, Pneumotórax, Equipamento",
+          "op": [
+            {
+              "t": "Tubo deslocado ou seletivo",
+              "ir": "f2"
+            },
+            {
+              "t": "Tubo obstruído por secreção",
+              "ir": "f3"
+            },
+            {
+              "t": "Ausculta assimétrica com instabilidade",
+              "ir": "f4"
+            },
+            {
+              "t": "Tubo pérvio e bem posicionado",
+              "ir": "n4"
+            }
+          ]
+        },
+        "n4": {
+          "txt": "Reavaliar causas clínicas",
+          "sub": "Broncoespasmo, edema agudo, TEP, atelectasia, hipovolemia",
+          "op": [
+            {
+              "t": "Ver conduta",
+              "ir": "f5"
+            }
+          ]
+        }
+      },
+      "fins": {
+        "f1": {
+          "txt": "Trocar para ventilação manual até resolver",
+          "cor": "mid",
+          "nota": "Manter ambu com reservatório. Checar pressão do cilindro e conexões da régua de O₂. Não confiar no ventilador até identificar a falha."
+        },
+        "f2": {
+          "txt": "Reposicionar o tubo",
+          "cor": "mid",
+          "nota": "Conferir marca na rima labial e simetria da ausculta. Se extubação acidental, reintubar. Refixar antes de retomar o trajeto."
+        },
+        "f3": {
+          "txt": "Aspirar via aérea",
+          "cor": "mid",
+          "nota": "Se não passar sonda de aspiração, considerar tubo obstruído e trocar. Manter ventilação manual durante o procedimento."
+        },
+        "f4": {
+          "txt": "Suspeitar de pneumotórax hipertensivo",
+          "cor": "high",
+          "nota": "Emergência. Descompressão imediata sem esperar imagem. Comunicar destino e considerar parada segura do veículo."
+        },
+        "f5": {
+          "txt": "Tratar a causa clínica identificada",
+          "cor": "mid",
+          "nota": "Otimizar parâmetros ventilatórios e sedação. Se instabilidade mantida, avaliar hospital mais próximo em vez do destino original."
+        }
+      },
+      "fonte": "Estruturado a partir do mnemônico DOPE. RASCUNHO — requer revisão médica antes de uso assistencial."
+    },
+    {
+      "id": "dif-dispneia",
+      "nome": "Dispneia — diferenciais",
+      "sigla": "DISPNEIA FALTA DE AR DESCONFORTO RESPIRATORIO",
+      "area": "Diferenciais",
+      "tipo": "diferencial",
+      "uso": "Hipóteses para dispneia aguda, ordenadas por risco",
+      "queixa": "Dispneia aguda no adulto",
+      "alarme": [
+        "Saturação em queda apesar de O₂ suplementar",
+        "Esforço respiratório com incapacidade de completar frases",
+        "Hipotensão associada",
+        "Rebaixamento do nível de consciência",
+        "Estridor ou sinais de obstrução de via aérea alta",
+        "Assimetria de ausculta com instabilidade"
+      ],
+      "hipoteses": [
+        {
+          "nome": "Pneumotórax hipertensivo",
+          "risco": "alto",
+          "favor": "Ausculta assimétrica, hipertimpanismo, turgência jugular, desvio de traqueia, hipotensão. Pode surgir durante o transporte em paciente ventilado.",
+          "contra": "Ausculta simétrica e estabilidade hemodinâmica.",
+          "passo": "Não esperar imagem. Descompressão imediata se suspeita com instabilidade."
+        },
+        {
+          "nome": "Edema agudo de pulmão",
+          "risco": "alto",
+          "favor": "Início súbito, ortopneia, estertores difusos, hipertensão, história cardíaca, expectoração rósea.",
+          "contra": "Ausculta limpa, pressão baixa, ausência de cardiopatia.",
+          "passo": "Sentar o paciente, O₂, ventilação não invasiva se disponível. Avaliar suporte pressórico."
+        },
+        {
+          "nome": "Tromboembolismo pulmonar",
+          "risco": "alto",
+          "favor": "Início súbito, dor pleurítica, taquicardia desproporcional, hipoxemia com ausculta pobre, fatores de risco (imobilização, cirurgia, neoplasia).",
+          "contra": "Ausculta alterada explicando o quadro, febre com foco claro.",
+          "passo": "Suporte de O₂ e hemodinâmico. Escore de Wells ajuda a estratificar (ver [[wells-tvp]])."
+        },
+        {
+          "nome": "Broncoespasmo / crise asmática ou DPOC",
+          "risco": "medio",
+          "favor": "Sibilos difusos, tempo expiratório prolongado, história prévia, uso de broncodilatador.",
+          "contra": "Ausculta limpa ou estertores em vez de sibilos.",
+          "passo": "Broncodilatador e corticoide. Atenção ao tórax silencioso — sinal de gravidade, não de melhora."
+        },
+        {
+          "nome": "Pneumonia",
+          "risco": "medio",
+          "favor": "Febre, tosse produtiva, estertores localizados, evolução em dias.",
+          "contra": "Início súbito em minutos, ausência de febre ou tosse.",
+          "passo": "Estratificar gravidade com CURB-65 (ver [[curb65]]). Antibiótico conforme protocolo."
+        },
+        {
+          "nome": "Causas do equipamento (paciente ventilado)",
+          "risco": "alto",
+          "favor": "Piora após conexão ao ventilador, melhora com ventilação manual, alarme de pressão, tubo com secreção.",
+          "contra": "Paciente não intubado.",
+          "passo": "Aplicar o fluxograma de dessaturação (ver [[fluxo-dessat]])."
+        },
+        {
+          "nome": "Ansiedade / hiperventilação",
+          "risco": "baixo",
+          "favor": "Parestesias, exame respiratório normal, saturação preservada, contexto emocional.",
+          "contra": "Hipoxemia, ausculta alterada, instabilidade. É diagnóstico de exclusão.",
+          "passo": "Só considerar após afastar as causas orgânicas acima."
+        }
+      ],
+      "fonte": "RASCUNHO — organização de hipóteses para apoio ao raciocínio clínico. Não é diagnóstico. Requer revisão médica antes de uso assistencial."
+    },
+    {
+      "id": "dif-hipotensao",
+      "nome": "Hipotensão no transporte — diferenciais",
+      "sigla": "HIPOTENSAO CHOQUE PA BAIXA INSTABILIDADE",
+      "area": "Diferenciais",
+      "tipo": "diferencial",
+      "uso": "Hipóteses para queda de pressão durante a remoção",
+      "queixa": "Hipotensão aguda no paciente em transporte",
+      "alarme": [
+        "PAM abaixo de 65 mmHg sustentada",
+        "Sinais de má perfusão: pele fria, tempo de enchimento capilar lentificado, oligúria",
+        "Rebaixamento do nível de consciência",
+        "Bradicardia associada à hipotensão"
+      ],
+      "hipoteses": [
+        {
+          "nome": "Falha da droga vasoativa",
+          "risco": "alto",
+          "favor": "Queda coincidente com troca de frasco, bomba em alarme, extravasamento, acesso obstruído, bateria acabando. Causa frequente e reversível.",
+          "contra": "Bomba funcionante e acesso pérvio conferidos há pouco.",
+          "passo": "Conferir bomba, acesso e frasco antes de qualquer outra hipótese. Recalcular a vazão (ver [[bic]])."
+        },
+        {
+          "nome": "Hipovolemia",
+          "risco": "alto",
+          "favor": "Taquicardia, extremidades frias, resposta à prova de volume, perda prévia (sangramento, vômito, jejum prolongado).",
+          "contra": "Turgência jugular, estertores, resposta ausente a volume.",
+          "passo": "Prova de volume e reavaliação. Buscar a fonte da perda."
+        },
+        {
+          "nome": "Pneumotórax hipertensivo",
+          "risco": "alto",
+          "favor": "Ausculta assimétrica, turgência jugular, piora após início da ventilação com pressão positiva.",
+          "contra": "Ausculta simétrica.",
+          "passo": "Descompressão imediata se suspeita com instabilidade."
+        },
+        {
+          "nome": "Sedação profunda demais",
+          "risco": "medio",
+          "favor": "Hipotensão após bolus ou aumento de sedativo, especialmente propofol. Paciente sem outros sinais de choque.",
+          "contra": "Sedação estável há tempo e sinais de má perfusão presentes.",
+          "passo": "Reduzir a sedação ao mínimo que mantém sincronia. Revisar a dose (ver [[bic]])."
+        },
+        {
+          "nome": "Choque séptico",
+          "risco": "alto",
+          "favor": "Febre ou hipotermia, foco infeccioso, taquicardia, extremidades quentes na fase inicial.",
+          "contra": "Início abrupto sem contexto infeccioso.",
+          "passo": "Estratificar com qSOFA (ver [[qsofa]]). Volume e vasopressor precoces."
+        },
+        {
+          "nome": "Choque cardiogênico",
+          "risco": "alto",
+          "favor": "Turgência jugular, estertores, história de IAM ou cardiopatia, má perfusão com congestão.",
+          "contra": "Ausculta limpa e resposta boa a volume.",
+          "passo": "Cuidado com volume. Considerar inotrópico."
+        }
+      ],
+      "fonte": "RASCUNHO — organização de hipóteses para apoio ao raciocínio clínico. Não é diagnóstico. Requer revisão médica antes de uso assistencial."
+    }
+  ]
+}
