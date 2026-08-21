@@ -1,0 +1,265 @@
+{
+  "_leia": "Cada caso descreve uma situacao e o resultado esperado. Quem escreve os casos e quem entende de clinica, nao quem programa. Rode 'node testes/validar.js' depois de qualquer mudanca no conteudo.",
+  "casos": [
+    {
+      "escore": "chads-vasc",
+      "descricao": "Mulher de 80 anos, hipertensa e diabetica",
+      "marcar": [
+        "sexo",
+        "id75",
+        "has",
+        "dm"
+      ],
+      "esperado": 5,
+      "faixaEsperada": "Risco alto"
+    },
+    {
+      "escore": "chads-vasc",
+      "descricao": "Homem de 70 anos com AVC previo",
+      "marcar": [
+        "id65",
+        "avc"
+      ],
+      "esperado": 3,
+      "faixaEsperada": "Risco alto"
+    },
+    {
+      "escore": "chads-vasc",
+      "descricao": "Homem de 50 anos sem comorbidades",
+      "marcar": [],
+      "esperado": 0,
+      "faixaEsperada": "Risco baixo"
+    },
+    {
+      "escore": "chads-vasc",
+      "descricao": "Idade 75+ deve anular a faixa 65-74 (nao somam)",
+      "marcar": [
+        "id65",
+        "id75"
+      ],
+      "esperado": 2
+    },
+    {
+      "escore": "wells-tvp",
+      "descricao": "Tres criterios positivos com diagnostico alternativo provavel",
+      "marcar": [
+        "ca",
+        "par",
+        "dor",
+        "alt"
+      ],
+      "esperado": 1,
+      "faixaEsperada": "Probabilidade moderada"
+    },
+    {
+      "escore": "qsofa",
+      "descricao": "Taquipneico e hipotenso, consciente",
+      "marcar": [
+        "fr",
+        "pas"
+      ],
+      "esperado": 2,
+      "faixaEsperada": "Alto risco"
+    },
+    {
+      "escore": "curb65",
+      "descricao": "Idoso confuso com PA baixa",
+      "marcar": [
+        "c",
+        "b",
+        "i"
+      ],
+      "esperado": 3,
+      "faixaEsperada": "Alta gravidade"
+    },
+    {
+      "escore": "glasgow",
+      "descricao": "Paciente em coma profundo",
+      "valores": {
+        "o": 1,
+        "v": 1,
+        "m": 1
+      },
+      "esperado": 3,
+      "faixaEsperada": "Grave"
+    },
+    {
+      "escore": "glasgow",
+      "descricao": "Paciente lucido e orientado",
+      "valores": {
+        "o": 4,
+        "v": 5,
+        "m": 6
+      },
+      "esperado": 15,
+      "faixaEsperada": "Leve"
+    },
+    {
+      "escore": "glasgow",
+      "descricao": "Limite de intubacao",
+      "valores": {
+        "o": 2,
+        "v": 2,
+        "m": 4
+      },
+      "esperado": 8,
+      "faixaEsperada": "Grave"
+    },
+    {
+      "escore": "cockcroft",
+      "descricao": "Mulher de 70 anos, 70 kg, creatinina 1,2",
+      "valores": {
+        "idade": 70,
+        "peso": 70,
+        "cr": 1.2,
+        "sexo": 0.85
+      },
+      "esperado": 48.2,
+      "tolerancia": 0.2,
+      "faixaEsperada": "Redução moderada"
+    },
+    {
+      "escore": "cockcroft",
+      "descricao": "Homem jovem, funcao normal",
+      "valores": {
+        "idade": 30,
+        "peso": 80,
+        "cr": 0.9,
+        "sexo": 1
+      },
+      "esperado": 135.8,
+      "tolerancia": 0.5,
+      "faixaEsperada": "Função preservada"
+    },
+    {
+      "infusao": "bic",
+      "descricao": "Noradrenalina 0,1 mcg/kg/min em paciente de 70 kg",
+      "droga": "nora",
+      "peso": 70,
+      "dose": 0.1,
+      "esperadoMlH": 6.6,
+      "tolerancia": 0.1
+    },
+    {
+      "infusao": "bic",
+      "descricao": "Dobutamina 5 mcg/kg/min em paciente de 70 kg",
+      "droga": "dobu",
+      "peso": 70,
+      "dose": 5,
+      "esperadoMlH": 21,
+      "tolerancia": 0.1
+    },
+    {
+      "infusao": "bic",
+      "descricao": "Fentanil 2 mcg/kg/h em paciente de 70 kg",
+      "droga": "fenta",
+      "peso": 70,
+      "dose": 2,
+      "esperadoMlH": 2.8,
+      "tolerancia": 0.1
+    },
+    {
+      "infusao": "bic",
+      "descricao": "Midazolam 0,1 mg/kg/h em paciente de 60 kg",
+      "droga": "mida",
+      "peso": 60,
+      "dose": 0.1,
+      "esperadoMlH": 6,
+      "tolerancia": 0.1
+    },
+    {
+      "oxigenio": "o2-autonomia",
+      "descricao": "Cilindro portatil 3,4 L a 150 kgf/cm2, fluxo 5 L/min, sem reserva",
+      "capacidade": 3.4,
+      "pressao": 150,
+      "fluxo": 5,
+      "reserva": 0,
+      "esperadoMin": 102,
+      "tolerancia": 1
+    },
+    {
+      "oxigenio": "o2-autonomia",
+      "descricao": "Cilindro 10 L a 200 kgf/cm2, fluxo 10 L/min, reserva 25%",
+      "capacidade": 10,
+      "pressao": 200,
+      "fluxo": 10,
+      "reserva": 25,
+      "esperadoMin": 150,
+      "tolerancia": 1
+    },
+    {
+      "oxigenio": "o2-autonomia",
+      "descricao": "Cilindro quase vazio deve dar autonomia curta",
+      "capacidade": 3.4,
+      "pressao": 30,
+      "fluxo": 8,
+      "reserva": 25,
+      "esperadoMin": 9.6,
+      "tolerancia": 0.5
+    },
+    {
+      "dosepeso": "iot-rapida",
+      "descricao": "Etomidato 0,3 mg/kg em paciente de 70 kg",
+      "droga": "Etomidato",
+      "peso": 70,
+      "esperadoMg": 21,
+      "esperadoMl": 10.5,
+      "tolerancia": 0.1
+    },
+    {
+      "dosepeso": "iot-rapida",
+      "descricao": "Succinilcolina 1,5 mg/kg em paciente de 80 kg",
+      "droga": "Succinilcolina",
+      "peso": 80,
+      "esperadoMg": 120,
+      "esperadoMl": 6,
+      "tolerancia": 0.1
+    },
+    {
+      "dosepeso": "iot-rapida",
+      "descricao": "Quetamina 1,5 mg/kg em paciente de 60 kg",
+      "droga": "Quetamina",
+      "peso": 60,
+      "esperadoMg": 90,
+      "esperadoMl": 1.8,
+      "tolerancia": 0.1
+    },
+    {
+      "fluxograma": "fluxo-dessat",
+      "descricao": "Ausculta assimetrica leva a pneumotorax hipertensivo",
+      "caminho": [
+        "Ventilei manualmente — não melhorou",
+        "Ausculta assimétrica com instabilidade"
+      ],
+      "fimEsperado": "f4"
+    },
+    {
+      "fluxograma": "fluxo-dessat",
+      "descricao": "Melhora com ventilacao manual aponta equipamento",
+      "caminho": [
+        "Ventilei manualmente — melhorou",
+        "Verificar circuito, conexões e fonte de O₂"
+      ],
+      "fimEsperado": "f1"
+    },
+    {
+      "diferencial": "dif-dispneia",
+      "descricao": "Dispneia lista pneumotorax hipertensivo como alto risco",
+      "hipotese": "Pneumotórax hipertensivo",
+      "riscoEsperado": "alto"
+    },
+    {
+      "diferencial": "dif-dispneia",
+      "descricao": "Ansiedade so entra como baixo risco e diagnostico de exclusao",
+      "hipotese": "Ansiedade / hiperventilação",
+      "riscoEsperado": "baixo"
+    },
+    {
+      "diferencial": "dif-hipotensao",
+      "descricao": "Falha da bomba vem primeiro na hipotensao em transporte",
+      "hipotese": "Falha da droga vasoativa",
+      "riscoEsperado": "alto",
+      "posicao": 0
+    }
+  ]
+}
