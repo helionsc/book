@@ -1,0 +1,27 @@
+{
+  "name": "Escores — plantão e transporte",
+  "short_name": "Escores",
+  "description": "Escores clínicos, doses e fluxogramas para plantão e transporte inter-hospitalar. Funciona offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a232d",
+  "theme_color": "#0a232d",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["medical", "health", "utilities"],
+  "icons": [
+    { "src": "icone-ios-120.png", "sizes": "120x120", "type": "image/png", "purpose": "any" },
+    { "src": "icone-ios-152.png", "sizes": "152x152", "type": "image/png", "purpose": "any" },
+    { "src": "icone-ios-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "icone-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Transporte", "url": "./index.html#transporte" },
+    { "name": "Registro", "url": "./index.html#registro" },
+    { "name": "Dúvidas", "url": "./index.html#duvidas" }
+  ]
+}

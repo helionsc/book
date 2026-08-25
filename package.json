@@ -1,0 +1,9 @@
+{
+  "name": "escores",
+  "version": "0.13.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx http-server public -p 8080",
+    "test": "node testes/validar.js && node testes/resolver.test.js && node testes/duvidas.test.js && node testes/registro.test.js"
+  }
+}
